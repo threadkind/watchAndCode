@@ -99,22 +99,21 @@ var view = {
     return deleteButton;
   },
   setUpEventListeners: function(){
-  
+    var todosUl = document.querySelector('ul');
+    todosUl.addEventListener('click', function(event){
+      console.log(event.target.parentNode.id);
+    var elementClicked = event.target;
+      if (elementClicked.className === 'deleteButton'){
+          handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+          }
+});
   
   }
 };
 
-var todosUl = document.querySelector('ul');
+  view.setUpEventListeners();
 
-todosUl.addEventListener('click', function(event){
-  console.log(event.target.parentNode.id);
-  
-  var elementClicked = event.target;
-  
-  if (elementClicked.className === 'deleteButton'){
-      handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
-      }
-});
+
 
 
 
